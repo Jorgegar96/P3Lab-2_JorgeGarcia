@@ -3,6 +3,8 @@
 #include <time.h>
 #include <math.h>
 
+#define PI 3.14159265
+
 using namespace std;
 
 int menuPrincipal(){
@@ -42,12 +44,15 @@ void comprobarTriangular(int);
 
 void triangularMasCercano(int);
 
+
 //Ejercicio de los triangulos con sus angulos y areas
 void Ejercicio2();
 
-bool comprobacionTriangulo(int, int, int);
+bool comprobacionTriangulo(float, float, float);
 
-void calcularArea(int, int, int);
+void calcularArea(float, float, float);
+
+void calcularAngulos(float, float, float);
 
 int main(){
 	bool salir = false;
@@ -97,7 +102,7 @@ void Ejercicio2(){
 	calcularAngulos(lado1, lado2, lado3);
 }
 
-bool comprobacionTriangulo(int lado1, int lado2, int lado3){
+bool comprobacionTriangulo(float lado1, float lado2, float lado3){
 	if (lado1 + lado2 > lado3 && 
 	    lado1 + lado3 > lado2 &&
 	    lado2 + lado3 > lado1){
@@ -106,11 +111,18 @@ bool comprobacionTriangulo(int lado1, int lado2, int lado3){
 	return false;
 }
 
-void calcularArea(int lado1, int lado2, int lado3){
+void calcularArea(float lado1, float lado2, float lado3){
 	float semi_perimetro = (lado1+lado2+lado3)/2;
 	float area = sqrt( semi_perimetro*(semi_perimetro-lado1)*(semi_perimetro-lado2)*(semi_perimetro-lado3) );
 	cout<<"Area: "<<area<<"u^2";
 }
+
+void calcularAngulos(float lado1, float lado2, float lado3){
+	float angulo1 = acos ( -1*((lado1*lado1)-((lado2*lado2)+(lado3*lado3)))/(2*lado2*lado3) );
+	angulo1 = angulo1 * 180 / PI;
+	cout<<"Angulo 1: "<<angulo1<<endl;
+}
+
 void Ejercicio1(){
 	bool salir = false;
 	int numero = 0;
