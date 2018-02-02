@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 using namespace std;
 
@@ -41,6 +42,13 @@ void comprobarTriangular(int);
 
 void triangularMasCercano(int);
 
+//Ejercicio de los triangulos con sus angulos y areas
+void Ejercicio2();
+
+bool comprobacionTriangulo(int, int, int);
+
+void calcularArea(int, int, int);
+
 int main(){
 	bool salir = false;
 	while(!salir){
@@ -49,6 +57,7 @@ int main(){
 				Ejercicio1();
 				break;
 			case 2:
+				Ejercicio2();
 				break;
 			case 3:
 				break;
@@ -62,6 +71,46 @@ int main(){
 	return 0;	
 }
 
+void Ejercicio2(){
+	float lado1 = 0;
+	float lado2 = 0;
+	float lado3 = 0;
+	for (int i=1; i < 4; i++){
+		cout<<"Ingrese la medida del lado numero "<<i<<":"<<endl;
+		switch (i){
+			case 1:
+				cin>>lado1;
+				break;
+			case 2:
+				cin>>lado2;
+				break;
+			case 3:
+				cin>>lado3;
+				if (!comprobacionTriangulo(lado1,lado2,lado3)){
+					i = 0;
+					cout<<"Las medidas no pueden formar un triangulo, porfavor ingrese otras"<<endl;
+				}
+				break;
+		}	
+	}
+	calcularArea(lado1, lado2, lado3);
+	calcularAngulos(lado1, lado2, lado3);
+}
+
+bool comprobacionTriangulo(int lado1, int lado2, int lado3){
+	if (lado1 + lado2 > lado3 && 
+	    lado1 + lado3 > lado2 &&
+	    lado2 + lado3 > lado1){
+		return true;
+	}
+	return false;
+}
+
+void calcularArea(int lado1, int lado2, int lado3){
+	float semi_perimetro = (lado1+lado2+lado3)/2;
+	float area = sqrt( semi_perimetro*(semi_perimetro-lado1)*(semi_perimetro-lado2)*(semi_perimetro-lado3) );
+	cout<<"Area: "<<area<<"u^2";
+}
 void Ejercicio1(){
 	bool salir = false;
 	int numero = 0;
