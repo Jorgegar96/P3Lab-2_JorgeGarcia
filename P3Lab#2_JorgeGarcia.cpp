@@ -58,7 +58,7 @@ void calcularAngulos(float, float, float);
 //Ejercicio de los numeros de catalan
 void Ejercicio3();
 
-
+int generacionCatalan(int, int, int, int, int, int);
 
 int main(){
 	bool salir = false;
@@ -88,9 +88,25 @@ void Ejercicio3(){
 		cout<<"Ingrese la cantidad de numeros de la serie Catalan que desea mostrar";
 		cin>>numero;
 	}
+	generacionCatalan(0,1,1,numero,1,0,0);
 
 }
 
+int generacionCatalan(int num1, int num2, int guardado1, int lim, int fila, int guardado2, int ciclo){
+	if (ciclo == lim){
+		guardado1 = num1 + num2;
+		
+		return 0;
+	} else {
+		if (fila%2 == 1){
+			cout<<guardado1<<" ";
+			generacionCatalan(num1, num2, num1+num2, 2, 1, guardado2, ciclo);	
+
+		} else{
+			generacionCatalan(guardado1,num,num1+num2,lim,fila+1, ciclo+1);
+		}
+	}	
+}
 void Ejercicio2(){
 	float lado1 = 0;
 	float lado2 = 0;
