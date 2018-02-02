@@ -1,6 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
 
 using namespace std;
 
@@ -14,7 +12,6 @@ int menuPrincipal(){
 	    <<"--------------- " <<endl
 	;
 	cin >> opcion;
-	return opcion;
 }
 
 int menuEjercicio1(){
@@ -27,7 +24,6 @@ int menuEjercicio1(){
 	    <<"----------------------------------" <<endl
 	;
 	cin >> opcion;
-	return opcion;
 }
 
 int menuEjercicio2();
@@ -35,7 +31,7 @@ int menuEjercicio2();
 int menuEjercicio3();
 
 //Ejercicio de los numeros triangulares y sus prototipos de funciones
-void Ejercicio1();
+void ejercicio1();
 
 void comprobarTriangular(int);
 
@@ -46,7 +42,7 @@ int main(){
 	while(!salir){
 		switch (menuPrincipal()){
 			case 1:
-				Ejercicio1();
+				ejercicio1();
 				break;
 			case 2:
 				break;
@@ -68,20 +64,13 @@ void Ejercicio1(){
 	while(!salir){
 		switch (menuEjercicio1()){
 			case 1:
-				cout<<"Ingrese un numero"<<endl;
+				cout<<"Ingrese un numero";
 				cin>>numero;
 				comprobarTriangular(numero);		
 				break;
 			case 2:
-				srand (time(NULL));
-				numero = rand() % 5 + 1;
-				cout<<"El numero al azar es: "<<numero<<endl;
-				comprobarTriangular(numero);
 				break;
 			case 3:
-				cout<<"Ingrese un numero"<<endl;
-				cin>>numero;
-				triangularMasCercano(numero);
 				break;
 			case 4:
 				salir = true;
@@ -92,29 +81,14 @@ void Ejercicio1(){
 	}	
 }
 
-void comprobarTriangular(int numero){
+void comprobarTrinagular(int numero)
 	int suma_triangular = 0;
 	for (int i=1; i <= numero; i++){
-		suma_triangular += i;
+		suma_triangular =+ i;
 		if (suma_triangular == numero){
 			cout<<"El numero es triangular"<<endl;
-			break;
 		}else if(i == numero){
 			cout<<"El numero no es triangular"<<endl;
 		}
 	}
-}
-
-void triangularMasCercano(int numero){
-	int suma_triangular = 0;
-	int triangular = 1;
-	for (int i=1; i <= numero; i++){
-		suma_triangular += i;
-		if (suma_triangular > numero){
-			break;
-		}else {
-			triangular = suma_triangular;
-		}
-	}
-	cout<<"El numero triangular mas cercano al ingresado que no lo supere es: "<<triangular<<endl;
 }
