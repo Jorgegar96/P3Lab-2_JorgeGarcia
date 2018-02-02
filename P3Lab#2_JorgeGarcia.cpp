@@ -59,6 +59,7 @@ void calcularAngulos(float, float, float);
 void Ejercicio3();
 
 
+
 int main(){
 	bool salir = false;
 	while(!salir){
@@ -87,6 +88,7 @@ void Ejercicio3(){
 		cout<<"Ingrese la cantidad de numeros de la serie Catalan que desea mostrar";
 		cin>>numero;
 	}
+
 }
 
 void Ejercicio2(){
@@ -128,6 +130,13 @@ void calcularArea(float lado1, float lado2, float lado3){
 	float semi_perimetro = (lado1+lado2+lado3)/2;
 	float area = sqrt( semi_perimetro*(semi_perimetro-lado1)*(semi_perimetro-lado2)*(semi_perimetro-lado3) );
 	cout<<"Area: "<<area<<"u^2"<<endl;
+	//Calculo de altura de un triangulo
+	float altura1 = 2*area/lado1;
+	cout<<"Altura 1: "<<altura1<<endl;
+	float altura2 = 2*area/lado2;
+	cout<<"Altura 2: "<<altura2<<endl;
+	float altura3 = 2*area/lado3;
+	cout<<"Altura 3: "<<altura3<<endl;
 }
 
 void calcularAngulos(float lado1, float lado2, float lado3){
