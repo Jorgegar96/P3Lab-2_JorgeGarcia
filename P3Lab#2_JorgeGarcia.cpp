@@ -114,13 +114,27 @@ bool comprobacionTriangulo(float lado1, float lado2, float lado3){
 void calcularArea(float lado1, float lado2, float lado3){
 	float semi_perimetro = (lado1+lado2+lado3)/2;
 	float area = sqrt( semi_perimetro*(semi_perimetro-lado1)*(semi_perimetro-lado2)*(semi_perimetro-lado3) );
-	cout<<"Area: "<<area<<"u^2";
+	cout<<"Area: "<<area<<"u^2"<<endl;
 }
 
 void calcularAngulos(float lado1, float lado2, float lado3){
+	//La formula despejada para encontrar los angulos reprsentada como el lado principal al cuadrado
+	//menos la resta de los otros dos lados restantes (ya al cuadrado), todo eso entre 2 por la multiplicacion
+	//de los dos lados restandes y negativo 1, por ultimo se utiliza el coseno inverso.
 	float angulo1 = acos ( -1*((lado1*lado1)-((lado2*lado2)+(lado3*lado3)))/(2*lado2*lado3) );
 	angulo1 = angulo1 * 180 / PI;
+	float angulo2 = acos ( -1*((lado2*lado2)-((lado1*lado1)+(lado3*lado3)))/(2*lado1*lado3) );
+	angulo2 = angulo2 * 180 / PI;
+	float angulo3 = acos ( -1*((lado3*lado3)-((lado2*lado2)+(lado1*lado1)))/(2*lado2*lado1) );
+	angulo3 = angulo3 * 180 / PI;
 	cout<<"Angulo 1: "<<angulo1<<endl;
+	cout<<"Angulo 2: "<<angulo2<<endl;
+	cout<<"Angulo 3: "<<angulo3<<endl;
+	if (angulo1 == 90 || angulo2 == 90 || angulo3 == 90){
+		cout<<"El triangulo es recto!"<<endl;
+	} else{
+		cout<<"El triangulo no es recto"<<endl;
+	}
 }
 
 void Ejercicio1(){
