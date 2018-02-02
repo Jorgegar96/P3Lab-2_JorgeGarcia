@@ -54,6 +54,11 @@ void calcularArea(float, float, float);
 
 void calcularAngulos(float, float, float);
 
+
+//Ejercicio de los numeros de catalan
+void Ejercicio3();
+
+
 int main(){
 	bool salir = false;
 	while(!salir){
@@ -74,6 +79,14 @@ int main(){
 		}
 	}
 	return 0;	
+}
+
+void Ejercicio3(){
+	int numero = -1;
+	while (numero < 1){
+		cout<<"Ingrese la cantidad de numeros de la serie Catalan que desea mostrar";
+		cin>>numero;
+	}
 }
 
 void Ejercicio2(){
