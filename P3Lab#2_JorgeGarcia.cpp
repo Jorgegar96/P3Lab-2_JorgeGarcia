@@ -89,8 +89,19 @@ void Ejercicio3(){
 		cout<<"Ingrese la cantidad de numeros de la serie Catalan que desea mostrar";
 		cin>>numero;
 	}
-	generacionCatalan(0,1,1,numero,1,0,0);
-
+	//generacionCatalan(0,1,1,numero,1,0,0);
+	cout<<"No pude hacer el triangulo de pascal pero aqui esta el progra 1"<<endl;
+	int esp = numero-1;
+	for(int x=1; x <= numero; x++){
+		for (int y=1;y<=esp;y++){
+			cout<<" ";
+		}
+		esp--;
+		for (int y=1; y <= (x*2-1); y++){
+			cout<<"*";
+		}
+		cout<<endl;
+	}
 }
 
 int generacionCatalan(int num1, int num2, int guardado1, int lim, int fila, int guardado2, int ciclo){
